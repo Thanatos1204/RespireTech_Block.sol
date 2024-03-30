@@ -8,6 +8,13 @@
   --background-end-rgb: 255, 255, 255;
 }
 
+@font-face {
+	font-family: 'Poppins';
+	src: url('/public/fonts/Poppins-Regular.woff2') format('woff2'),
+	url('/public/fonts/Poppins-Regular.woff') format('woff');
+	font-style: normal;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -24,6 +31,7 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+    font-family: 'Poppins', sans-serif; /* Changed font family to Poppins */
 }
 
 @layer utilities {

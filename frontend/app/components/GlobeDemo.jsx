@@ -1,21 +1,13 @@
-// pages/index.js
-'use client'
-import React from 'react';
-import RectangleScreen from './components/RectangleScreen';
-import Layout from './components/Layout';
-import Nav from './components/Navbar';
-import { TypewriterEffectSmooth } from './components/ui/typewriter-effect';
+"use client";
+import React from "react";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
-import Blog from './components/BlogPosts';
-import Feature from './components/Features';
 
-const World = dynamic(() => import("./components/ui/globe").then((m) => m.World), {
+const World = dynamic(() => import("../ui/globe").then((m) => m.World), {
   ssr: false,
 });
 
-const Home = () => {
-
+export function GlobeDemo() {
   const globeConfig = {
     pointSize: 4,
     globeColor: "#062056",
@@ -23,7 +15,7 @@ const Home = () => {
     atmosphereColor: "#FFFFFF",
     atmosphereAltitude: 0.1,
     emissive: "#062056",
-    emissiveIntensity: 0.9,
+    emissiveIntensity: 0.1,
     shininess: 0.9,
     polygonColor: "rgba(255,255,255,0.7)",
     ambientLight: "#38bdf8",
@@ -402,93 +394,36 @@ const Home = () => {
     },
   ];
 
-  const words = [
-    {
-      text: "Monitor",
-    },
-    {
-      text: "Your",
-    },
-    {
-      text: "Health",
-    },
-    {
-      text: "with",
-    },
-    {
-      text: "Respire Tech!",
-      className: "text-yellow-400 dark:text-yellow-400",
-    },
-  ];
-
-
   return (
-    <Layout>
-      <Nav></Nav>
-      <div className="flex flex-col items-center -mt-36 justify-center h-[40rem]  ">
-      <p style={{ fontSize: '1.5rem' }} className="text-white text-xs sm:text-base  ">
-      Precision Health Monitoring with Asthma Pump Analysis
-      </p>
-      <TypewriterEffectSmooth words={words} />
-      <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 space-x-0 md:space-x-4">
-        <a href='/upload'>
-        <button className="w-40 h-10 rounded-xl bg-yellow-400 hover:bg-yellow-600 ease-in-out duration-500  text-white text-base font-semibold">
-          Try Now!
-        </button>
-        </a>
-        
-        <a href='#news'>
-        <button className="w-40 h-10 rounded-xl bg-white hover:bg-neutral-400 ease-in-out duration-500 text-black border border-blue-500  text-base">
-          See Demo
-        </button>
-        </a>
-        
+    <div className="flex flex-row items-center justify-center py-20 h-screen md:h-auto dark:bg-black bg-white relative w-full">
+      <div className="max-w-7xl mx-auto w-full relative overflow-hidden h-full md:h-[40rem] px-4">
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 20,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            duration: 1,
+          }}
+          className="div"
+        >
+          <h2 className="text-center text-xl md:text-4xl font-bold text-black dark:text-white">
+            We sell soap worldwide
+          </h2>
+          <p className="text-center text-base md:text-lg font-normal text-neutral-700 dark:text-neutral-200 max-w-md mt-2 mx-auto">
+            This globe is interactive and customizable. Have fun with it, and
+            don&apos;t forget to share it. :)
+          </p>
+        </motion.div>
+        <div className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent dark:to-black to-white z-40" />
+        <div className="absolute w-full -bottom-20 h-72 md:h-full z-10">
+          <World data={sampleArcs} globeConfig={globeConfig} />;
+        </div>
       </div>
     </div>
-      <div className="flex justify-center">
-        <div className="w-4/5 -mt-40 h-screen flex items-center justify-between relative">
-          <RectangleScreen>
-            <h2 className="text-2xl text-white font-bold mb-4">Revolutionizing <span className='text-yellow-400 text-2xl'>Asthma Management</span>: </h2>  
-            <p className='text-white text-base font-semibold'>Experience unparalleled precision and insight into asthma pump usage with our cutting-edge AI-driven health monitoring solution, ensuring optimal management and care.</p>
-          </RectangleScreen>
-          <motion.div
-              initial={{
-                opacity: 0,
-                y: 20,
-              }}
-              animate={{
-                opacity: 1,
-                y: 0,
-              }}
-              transition={{
-                duration: 1,
-              }}
-              className="div"
-            >
-            </motion.div>
-            <div className="relative h-1/2 p-5 inset-0 flex items-center justify-center"> {/* Center the World component */}
-              <World data={sampleArcs} globeConfig={globeConfig} />
-            </div>
-        </div>
-      </div>
-      <div className="flex justify-center">
-        <div id='news' className="w-4/5 mt-60 h-screen flex items-center justify-center">
-          <RectangleScreen>
-            <Blog/>
-            {/* Add more content as needed */}
-          </RectangleScreen>
-        </div>
-      </div>
-      <div className="flex justify-center">
-        <div id='features' className="w-4/5 mt-80 h-screen flex items-center justify-center">
-          <RectangleScreen>
-            <Feature/>
-            {/* Add more content as needed */}
-          </RectangleScreen>
-        </div>
-      </div>
-    </Layout>
   );
-};
-
-export default Home;
+}
