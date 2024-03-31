@@ -73,7 +73,7 @@ def video_feed():
                 average_neck_to_shoulder = (neck_to_left_shoulder + neck_to_right_shoulder) / 2
 
                 # Define a threshold for good posture
-                good_posture_threshold = 0.4  # Example value, adjust based on your criteria
+                good_posture_threshold = 0.05 # Example value, adjust based on your criteria
 
                 if average_neck_to_shoulder > good_posture_threshold:
                     # Poor posture detected
