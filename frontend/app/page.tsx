@@ -9,6 +9,24 @@ import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import Blog from './components/BlogPosts';
 import Feature from './components/Features';
+import { driver } from "driver.js";
+import "driver.js/dist/driver.css";
+
+const driverObj = driver({
+  showProgress: true,
+  steps: [
+    { element: '#news', popover: { title: 'Demo Video', description: 'Please Watch this video very carefully as it is very essential to administer a proper dose of your Medication' } },
+    { element: '#features', popover: { title: 'Features', description: 'This is Features UI Element."Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt' } },
+    { element: '#trybutton', popover: { title: 'Try Now!', description: 'Hit this button to start the login proceddure for the Patient and begin Monitoring their Health!' } },
+    { element: '#subheader', popover: { title: 'Have an Accurate Analysis!', description: 'Please try to follow the audio instructions as carefully as possible, to administer your medicine correctly' } },
+  ]
+});
+
+async function tutorial(){
+  await driverObj.drive();
+}
+
+
 
 const World = dynamic(() => import("./components/ui/globe").then((m) => m.World), {
   ssr: false,
@@ -426,22 +444,22 @@ const Home = () => {
     <Layout>
       <Nav></Nav>
       <div className="flex flex-col items-center -mt-36 justify-center h-[40rem]  ">
-      <p style={{ fontSize: '1.5rem' }} className="text-white text-xs sm:text-base  ">
+      <p id='subheader' style={{ fontSize: '1.5rem' }} className="text-white text-xs sm:text-base  ">
       Precision Health Monitoring with Asthma Pump Analysis
       </p>
       <TypewriterEffectSmooth words={words} />
-      <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 space-x-0 md:space-x-4">
-        <a href='/opencv'>
+      <div id='trybutton' className="flex flex-col md:flex-row space-y-4 md:space-y-0 space-x-0 md:space-x-4">
+        <a href='/signup'>
         <button className="w-40 h-10 rounded-xl bg-yellow-400 hover:bg-yellow-600 ease-in-out duration-500  text-white text-base font-semibold">
           Try Now!
         </button>
         </a>
         
-        <a href='#news'>
-        <button className="w-40 h-10 rounded-xl bg-white hover:bg-neutral-400 ease-in-out duration-500 text-black border border-blue-500  text-base">
-          See Demo
+       
+        <button onClick={tutorial} className="w-40 h-10 rounded-xl bg-white hover:bg-neutral-400 ease-in-out duration-500 text-black border border-blue-500  text-base">
+          Start Tutorial
         </button>
-        </a>
+       
         
       </div>
     </div>

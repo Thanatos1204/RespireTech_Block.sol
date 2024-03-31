@@ -11,14 +11,14 @@ const OpenCV = () => {
 
     const { user, logOut } = UserAuth();
     const [email, setEmail] = useState();
-    useEffect(() => {
-        if(user){
-            console.log(user.email);
-            setEmail(user.email); 
-        }else{
-            console.log("Email Not Found");
-        }
-    }, [user]);
+    // useEffect(() => {
+    //     if(user){
+    //         console.log(user.email);
+    //         setEmail(user.email); 
+    //     }else{
+    //         console.log("Email Not Found");
+    //     }
+    // }, [user]);
 
     const shakesData = {
         labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
