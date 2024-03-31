@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { AuthContextProvider } from "./context/AuthContext";
 import "./globals.css";
 import Head from "next/head";
 
@@ -20,7 +21,10 @@ export default function RootLayout({
       <Head>
         <link rel="stylesheet" href='/fonts/AlphaLyrae-Medium.woff'/>
       </Head>
-      <body>{children}</body>
+      <AuthContextProvider>
+        <body>{children}</body>
+      </AuthContextProvider>
+      
     </html>
   );
 }

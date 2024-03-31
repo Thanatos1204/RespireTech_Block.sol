@@ -431,7 +431,7 @@ const Home = () => {
       </p>
       <TypewriterEffectSmooth words={words} />
       <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 space-x-0 md:space-x-4">
-        <a href='/upload'>
+        <a href='/opencv'>
         <button className="w-40 h-10 rounded-xl bg-yellow-400 hover:bg-yellow-600 ease-in-out duration-500  text-white text-base font-semibold">
           Try Now!
         </button>

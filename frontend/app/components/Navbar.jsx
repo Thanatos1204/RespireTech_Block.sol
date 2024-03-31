@@ -5,9 +5,7 @@ const Nav = () => {
 
     const navigation = [
         { title: "Features", path: "#features" },
-        { title: "News", path: "#news" },
-        { title: "", path: "/voice-detect" },
-        { title: "", path: "/image-detect" }
+        { title: "Demo", path: "#news" },
     ];
 
     useEffect(() => {
@@ -66,11 +64,11 @@ const Nav = () => {
                         ))}
                     </ul>
                     <div className="flex-1 gap-x-6 items-center justify-end mt-6 space-y-6 md:flex md:space-y-0 md:mt-0">
-                        <a href="javascript:void(0)" style={{ fontSize: '1.5rem' }} className="block text-white hover:text-yellow-400 ease-in-out duration-500">
+                        <a href="/login" style={{ fontSize: '1.5rem' }} className="block text-white hover:text-yellow-400 ease-in-out duration-500">
                             Log in
                         </a>
-                        <a href="javascript:void(0)" style={{ fontSize: '1.5rem' }} className="flex items-center justify-center gap-x-1 py-2 px-4 text-white -medium bg-yellow-400 hover:bg-yellow-600 active:bg-yellow-800 rounded-full md:inline-flex">
-                            Sign in
+                        <a href="/signup" style={{ fontSize: '1.5rem' }} className="flex items-center justify-center gap-x-1 py-2 px-4 text-white -medium bg-yellow-400 hover:bg-yellow-600 ease-in-out duration-500 active:bg-yellow-800 rounded-full md:inline-flex">
+                            Sign Up
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
                                 <path fillRule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clipRule="evenodd" />
                             </svg>
